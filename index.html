@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulasi Interaktif Hamburan Compton</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="app-container">
+
+        <div id="bagian-soal-pendahuluan" class="page-section">
+            <h1>Soal Pendahuluan</h1>
+            <form id="quizFormPendahuluan">
+                <div class="question">
+                    <p>1. Bagaimanakah panjang gelombang foton setelah mengalami hamburan Compton?</p>
+                    <label><input type="radio" name="q1_pendahuluan" value="a"> Tetap sama</label><br>
+                    <label><input type="radio" name="q1_pendahuluan" value="b"> Menjadi lebih pendek</label><br>
+                    <label><input type="radio" name="q1_pendahuluan" value="c"> Menjadi lebih panjang</label><br>
+                    <label><input type="radio" name="q1_pendahuluan" value="d"> Bergantung pada suhu elektron</label><br>
+                </div>
+                <div class="question">
+                    <p>2. Manakah dari pernyataan berikut yang benar tentang hamburan Compton?</p>
+                    <label><input type="radio" name="q2_pendahuluan" value="a"> Energi foton meningkat setelah tumbukan dengan elektron</label><br>
+                    <label><input type="radio" name="q2_pendahuluan" value="b"> Foton kehilangan energi saat tumbukan dengan elektron bebas</label><br>
+                    <label><input type="radio" name="q2_pendahuluan" value="c"> Elektron tidak mendapatkan energi dari foton yang menumbuk</label><br>
+                    <label><input type="radio" name="q2_pendahuluan" value="d"> Sudut hamburan tidak memengaruhi perubahan panjang gelombang</label><br>
+                </div>
+                <div class="question">
+                    <p>3. Dalam efek Compton, partikel yang mengalami tumbukan dengan foton adalah…</p>
+                    <label><input type="radio" name="q3_pendahuluan" value="a"> Inti atom</label><br>
+                    <label><input type="radio" name="q3_pendahuluan" value="b"> Elektron terikat</label><br>
+                    <label><input type="radio" name="q3_pendahuluan" value="c"> Elektron bebas</label><br>
+                    <label><input type="radio" name="q3_pendahuluan" value="d"> Neutron</label><br>
+                </div>
+                <div class="question">
+                    <p>4. Efek Compton menunjukkan bahwa cahaya memiliki sifat…</p>
+                    <label><input type="radio" name="q4_pendahuluan" value="a"> Gelombang saja</label><br>
+                    <label><input type="radio" name="q4_pendahuluan" value="b"> Partikel saja</label><br>
+                    <label><input type="radio" name="q4_pendahuluan" value="c"> Gelombang dan partikel</label><br>
+                    <label><input type="radio" name="q4_pendahuluan" value="d"> Elektromagnetik murni</label><br>
+                </div>
+                <div class="question">
+                    <p>5. Dalam efek Compton, jika sudut hamburan foton adalah 0°, maka…</p>
+                    <label><input type="radio" name="q5_pendahuluan" value="a"> Tidak terjadi perubahan panjang gelombang</label><br>
+                    <label><input type="radio" name="q5_pendahuluan" value="b"> Panjang gelombang menjadi maksimum</label><br>
+                    <label><input type="radio" name="q5_pendahuluan" value="c"> Elektron tidak bergerak</label><br>
+                    <label><input type="radio" name="q5_pendahuluan" value="d"> Energi foton hilang seluruhnya</label><br>
+                </div>
+            </form>
+            <div id="hasilQuizPendahuluan" class="hasil-quiz-inline">
+                </div>
+            <button class="nav-button" id="tombolLihatKunciPendahuluan" onclick="kumpulkanJawabanPendahuluan()">Lihat Kunci Jawaban</button>
+            <button class="nav-button next-button hidden" id="tombolLanjutKeMateri" data-target="bagian-materi">Lanjut ke Materi</button>
+        </div>
+
+        <div id="bagian-materi" class="page-section hidden">
+            <h1>MATERI EFEK COMPTON</h1>
+            <p style="font-style: italic; text-align: center; margin-bottom: 20px;">"Apa yang terjadi ketika bola bowling dan bola pingpong bertabrakan?"</p>
+            <p>Kita ibaratkan foton adalah bola bowling dan bola pingpong adalah elektron. Jika tumbukan tersebut terjadi, pasti bola bowling (foton) kehilangan sebagian energi dan bola pingpong (elektron) terpental sehingga menyebabkan arah gerak kedua bola berubah.</p>
+            <p>Efek Compton adalah nama yang diberikan oleh fisikawan untuk tumbukan antara foton dan elektron. Foton memantul dari elektron target dan kehilangan energi. Tumbukan elastis ini bersaing dengan efek fotolistrik saat sinar gamma melewati materi. Efek ini berkontribusi pada pelemahan sinar gamma. Efek ini ditemukan pada tahun 1922 oleh fisikawan Amerika Arthur H. Compton. Compton menerima Penghargaan Nobel dalam Fisika pada tahun 1927. Ia mendemonstrasikan sifat partikel dari radiasi elektromagnetik. Itu adalah penemuan yang sensasional pada saat itu.</p>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="images/tumbukan.jpg" alt="Gambar 1. Tumbukan antara foton dan elektron" style="max-width: 80%; height: auto; border: 1px solid #ccc; padding: 5px; border-radius: 5px;">
+                <p style="font-style: italic; text-align: center; margin-bottom: 5px;"><em>Gambar 1. Tumbukan antara foton dan elektron</em><br>(sumber: https://radioactivity.eu.com/articles/phenomenon/compton_effect)</p>
+            </div>
+            <p>Tujuan Compton melakukannya adalah untuk mengungkap sebuah efek yang akan terjadi ketika ia melakukan eksperimen penembakan sinar X yang dikeluarkan dari bahan radioaktif lempengan tipis. Dari percobaan yang dilakukan Compton tersebut dihasilkan bahwa cahaya atau sinar yang keluar dari lempengan tipis, gelombang elektromagnetik akan segera berhamburan. Tumbukan Compton dapat dilihat sebagai tumbukan elastis antara foton dan elektron. Tumbukan elastis ini menjadi dominan ketika energi foton menjadi besar dibandingkan dengan energi yang menahan elektron dalam atom, energi pengikatannya. Untuk atom ringan seperti karbon, efek Compton berlaku pada efek fotolistrik di atas 20 keV. Untuk tembaga di atas 130 keV, dan untuk timbal 600 keV.</p>
+            <p>Dalam rentang energi gamma ini, yang agak meluas, fenomena tersebut menyangkut semua elektron atom, sedangkan dalam efek fotolistrik, kedua elektron dari kulit K terdalamlah yang berperan. Bagi penyerap, kerapatan elektronlah yang penting dalam rentang di mana efek Compton mendominasi. Dengan demikian, timbal juga memiliki keunggulan dibandingkan bahan yang lebih ringan, meskipun kurang penting dibandingkan efek fotolistrik, yang muncul pada pangkat empat dari muatan listrik inti yang tinggi.</p>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="images/probabilitas_tumbukan.jpg" alt="Gambar 2. Pembagian energi yang tidak merata" style="max-width: 80%; height: auto; border: 1px solid #ccc; padding: 5px; border-radius: 5px;">
+                <p style="font-style: italic; text-align: center; margin-bottom: 5px"><em>Gambar 2. Pembagian energi yang tidak merata. Pembagian energi antara foton gamma dan elektron target bergantung pada sudut hamburan gamma</em><br>(sumber: https://radioactivity.eu.com/articles/phenomenon/compton_effect)</p>
+            </div>
+            <p>Sinar gamma tidak hancur dalam tumbukan. Foton yang muncul bersama elektron, disebut foton "tersebar", berbagi energi awal dengan elektron yang digerakkan. Elektron kemudian kehilangan energinya melalui ionisasi sebagai elektron beta. Sinar gamma yang tersebar menyebar melalui material tanpa menyimpan energi hingga berinteraksi lagi. Pembagian energi tidak merata. Pembagian energi bergantung pada sudut antara foton yang tersebar dan gamma awal (distribusi probabilitas gamma pada sudut tertentu diberikan oleh rumus yang disebut "rumus Klein-Nishima"). Meskipun massanya sangat ringan, elektron memang merupakan target berat bagi foton yang tidak bermassa. Hukum fisika yang mengatur efek Compton adalah bahwa foton yang tersebar membawa sebagian besar energi awal: 96% rata-rata pada 50 keV, 83% pada 500 keV. Kasus yang paling mungkin adalah saat foton tidak tersebar dan tidak kehilangan energi. Kasus yang paling jarang terjadi adalah saat gamma memantul ke belakang dan mendorong elektron ke depan. Rata-rata, foton hanya mentransfer sebagian kecil energinya ke elektron dan mengalami pergeseran arah yang signifikan (nilai dalam gambar telah dihitung untuk energi 500 keV).</p>
+            <div style="background-color: #f0f0f0; padding: 15px; border-radius: 5px; margin: 20px 0; border-left: 3px solid #0056b3;">
+                <p style="font-size: 1.1em; font-weight: bold; text-align: center; margin-bottom: 10px;">Rumus Efek Compton:</p>
+                <p style="font-size: 1.2em; text-align: center; margin-bottom: 10px;">
+                    \( \lambda' - \lambda = \frac{h}{m_e c}(1 - \cos\theta) \)
+                </p>
+                <p><strong>Keterangan:</strong></p>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li>\( \lambda' \) : panjang gelombang setelah tumbukan (nm)</li>
+                    <li>\( \lambda \) : panjang gelombang sebelum tumbukan (nm)</li>
+                    <li>\( h \) : konstanta Planck (\(6.626 \times 10^{-34}\) Js)</li>
+                    <li>\( m_e \) : massa elektron diam (\(9.109 \times 10^{-31}\) kg)</li>
+                    <li>\( c \) : kecepatan Cahaya (\(3.00 \times 10^{8}\) m/s)</li>
+                    <li>\( \theta \) : sudut hamburan foton</li>
+                </ul>
+            </div>
+            <p>Dari persamaan tersebut di atas dapat diketahui bahwa perubahan panjang gelombang terbesar yang dapat terjadi pada \(\theta = 180^\circ\). Ketika itu perubahan panjang gelombang menjadi dua kali panjang gelombang Compton.</p>
+            <p>Foton yang terpencar biasanya muncul dalam arah yang berbeda dari arah foton datang. Bahkan dapat bergerak mundur (<em>backscattering</em>). Rata-rata, foton terpencar dengan sudut 30 hingga 45 derajat. Gamma dengan kekuatan ratusan keV dapat mengalami hamburan Compton berkali-kali sebelum diserap oleh efek fotolistrik.</p>
+            <p>Ketika energi gamma melebihi 1 MeV, yang jarang terjadi pada sinar gamma yang dipancarkan oleh inti atom, hamburan Compton mulai ditantang oleh fenomena baru: transformasi gamma menjadi elektron dan antipartikelnya, positron. Fenomena ini menjadi menonjol dengan gamma berenergi tinggi yang diproduksi misalnya dengan akselerator partikel.</p>
+            <button class="nav-button prev-button" data-target="bagian-soal-pendahuluan">Kembali ke Soal Pendahuluan</button>
+            <button class="nav-button next-button" data-target="bagian-simulasi">Lanjut ke Simulasi</button>
+        </div>
+
+        <div id="bagian-simulasi" class="page-section hidden">
+            <h1>Simulasi Hamburan Compton</h1>
+            <div class="controls">
+                <label for="lambdaInput">Panjang Gelombang Datang (pm):
+                    <input type="number" id="lambdaInput" value="70">
+                </label>
+                <label for="thetaInputFoton">Sudut Hamburan Foton θ (derajat):
+                    <input type="range" id="thetaInputFoton" min="0" max="180" value="90">
+                    <span id="thetaValueFoton">90</span>°
+                </label>
+            </div>
+            <div class="simulation-area">
+                <canvas id="comptonCanvas" width="600" height="450"></canvas>
+            </div>
+            <button id="tombolHitung">Hitung & Visualisasikan</button>
+            <div id="hasil">
+                <h2>Hasil Perhitungan:</h2>
+                <p>Panjang Gelombang Foton Datang (λ): <span id="lambdaDatangDisplay">-</span> pm</p>
+                <p>Perubahan Panjang Gelombang Foton (Δλ): <span id="deltaLambda">-</span> pm</p>
+                <p>Panjang Gelombang Foton Terhambur (λ'): <span id="lambdaFinal">-</span> pm</p>
+                <p>Energi Foton Datang (E): <span id="Edatang">-</span> keV</p>
+                <p>Energi Foton Terhambur (E'): <span id="Eakhir">-</span> keV</p>
+                <p>Energi Kinetik Elektron Terpental (K<sub>e</sub>): <span id="Kelectron">-</span> keV</p>
+                <p>Sudut Hamburan Foton (θ): <span id="thetaFotonDisplay">-</span> °</p>
+                <p>Sudut Hamburan Elektron (Φ): <span id="phiElectronDisplay">-</span> °</p>
+            </div>
+            <button class="nav-button prev-button" data-target="bagian-materi">Kembali ke Materi</button>
+            <button class="nav-button next-button" data-target="bagian-soal-evaluasi">Lanjut ke Soal Evaluasi</button>
+        </div>
+
+        <div id="bagian-soal-evaluasi" class="page-section hidden">
+            <h1>Soal Evaluasi</h1>
+            <form id="quizFormEvaluasi">
+                <div class="question">
+                    <p>1. Pada efek Compton, energi kinetik maksimum yang diperoleh elektron terjadi saat sudut hamburan foton adalah…</p>
+                    <label><input type="radio" name="q1_evaluasi" value="a"> 0°</label><br>
+                    <label><input type="radio" name="q1_evaluasi" value="b"> 45°</label><br>
+                    <label><input type="radio" name="q1_evaluasi" value="c"> 90°</label><br>
+                    <label><input type="radio" name="q1_evaluasi" value="d"> 180°</label><br>
+                </div>
+                <div class="question">
+                    <p>2. Dalam hamburan Compton, mengapa panjang gelombang foton bertambah setelah tumbukan?</p>
+                    <label><input type="radio" name="q2_evaluasi" value="a"> Karena foton kehilangan massa</label><br>
+                    <label><input type="radio" name="q2_evaluasi" value="b"> Karena foton mentransfer energinya ke proton</label><br>
+                    <label><input type="radio" name="q2_evaluasi" value="c"> Karena sebagian energi foton diberikan ke elektron sehingga frekuensinya turun</label><br>
+                    <label><input type="radio" name="q2_evaluasi" value="d"> Karena foton berubah menjadi gelombang longitudinal</label><br>
+                </div>
+                <div class="question">
+                    <p>3. Manakah pernyataan berikut yang benar? Jika sudut hamburan foton meningkat, maka…</p>
+                    <label><input type="radio" name="q3_evaluasi" value="a"> Energi foton meningkat</label><br>
+                    <label><input type="radio" name="q3_evaluasi" value="b"> Momentum elektron tetap</label><br>
+                    <label><input type="radio" name="q3_evaluasi" value="c"> Perubahan panjang gelombang semakin besar</label><br>
+                    <label><input type="radio" name="q3_evaluasi" value="d"> Panjang gelombang foton mendekati panjang gelombang awal</label><br>
+                </div>
+                <div class="question">
+                    <p>4. Apa yang terjadi pada elektron setelah mengalami tumbukan dengan foton dalam efek Compton?</p>
+                    <label><input type="radio" name="q4_evaluasi" value="a"> Elektron tidak bergerak karena massanya kecil</label><br>
+                    <label><input type="radio" name="q4_evaluasi" value="b"> Elektron memantul ke arah yang sama dengan foton</label><br>
+                    <label><input type="radio" name="q4_evaluasi" value="c"> Elektron memperoleh energi dan bergerak dengan kecepatan tertentu</label><br>
+                    <label><input type="radio" name="q4_evaluasi" value="d"> Elektron menyerap seluruh foton dan lenyap</label><br>
+                </div>
+                <div class="question">
+                    <p>5. Foton dengan panjang gelombang awal \( \lambda = 0,07 \) nm dihamburkan oleh elektron bebas pada sudut \( 90^\circ \). Panjang gelombang foton setelah hamburan adalah…</p>
+                    <label><input type="radio" name="q5_evaluasi" value="a"> 0,07243 nm</label><br>
+                    <label><input type="radio" name="q5_evaluasi" value="b"> 0,07000 nm</label><br>
+                    <label><input type="radio" name="q5_evaluasi" value="c"> 0,07300 nm</label><br>
+                    <label><input type="radio" name="q5_evaluasi" value="d"> 0,07121 nm</label><br>
+                </div>
+            </form>
+            <button class="nav-button prev-button" data-target="bagian-simulasi">Kembali ke Simulasi</button>
+            <button class="nav-button next-button" data-target="bagian-pembahasan-evaluasi" onclick="kumpulkanJawabanEvaluasi()">Lihat Pembahasan Evaluasi</button>
+        </div>
+
+        <div id="bagian-pembahasan-evaluasi" class="page-section hidden">
+            <h1>Pembahasan Soal Evaluasi</h1>
+            <div id="pembahasanContentEvaluasi">
+                </div>
+            <button class="nav-button prev-button" data-target="bagian-soal-evaluasi">Kembali ke Soal Evaluasi</button>
+            <button class="nav-button next-button" data-target="bagian-materi">Kembali ke Materi Utama</button>
+        </div>
+
+
+        <div class="credits-footer">
+            <p>Created by Sekar Kinanti Nugraheni, Firda Rulifiangga, Retno Setyaningsih, Prof. Widayani</p>
+            <p>Magister Pengajaran Fisika ITB - 2025</p>
+        </div>
+
+    </div> <script src="script.js"></script>
+</body>
+</html>
